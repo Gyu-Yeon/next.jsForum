@@ -3,5 +3,6 @@ export default function handler(req, res) {
     return res.status(200).json("done");
   } else if (req.method === "GET") {
     console.log(res);
+    return res.status(200).json("d");
   }
 }
