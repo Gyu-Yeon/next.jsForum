@@ -21,3 +21,6 @@ export default function DetailLink() {
 //router..forward() 앞으로가기
 //router.refresh() 변경된 html만 새로고침 softRefresh
 //router.prefetch() 페이지 미리로드
+//usePathname() 현재URL출력
+//useSearchParams() = queryString
+// 3-tier-architecture
