@@ -14,8 +14,3 @@ export default async function handler(req, res) {
     }
   }
 }
-
-//회원가입 페이지 만들기
-// 아이디 중복 체크
-// 로그인 페이지 만들기
-// 아이디 와 비밀번호 체크.
