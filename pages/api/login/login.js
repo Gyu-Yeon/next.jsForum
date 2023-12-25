@@ -11,19 +11,19 @@ export default async function handler(req, res) {
       let result = db.collection("login").find().toArray();
       console.log(result);
       let ss = req.body;
-      //   let checkId = result.filter((item) => {
-      //     return (item.id = req.body.id);
-      //   });
-      //   console.log(checkId);
-      //   if (checkId) {
-      //     if (checkId.password === req.body.password) {
-      //       res.redirect(302, "/list");
-      //     }
-      //   }
-      //   res.redirect(302, "/login");
       res.status(200).json(ss);
     } catch (error) {
       console.log(error);
     }
   }
 }
+//   let checkId = result.filter((item) => {
+//     return (item.id = req.body.id);
+//   });
+//   console.log(checkId);
+//   if (checkId) {
+//     if (checkId.password === req.body.password) {
+//       res.redirect(302, "/list");
+//     }
+//   }
+//   res.redirect(302, "/login");
