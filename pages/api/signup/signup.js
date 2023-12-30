@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       let result = db.collection("login").insertOne(req.body);
       res.redirect(302, "/login");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 }
