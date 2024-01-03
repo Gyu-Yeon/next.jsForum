@@ -7,6 +7,10 @@ export default async function Edit(props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
   console.log(result);
+
+  await db
+    .collection(컬렉션명)
+    .updateOne({ 수정할게시물정보 }, { $set: { 수정할내용 } });
   return (
     <div className="write">
       <form action="어쩌구" method="POST">
