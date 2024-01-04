@@ -6,7 +6,6 @@ export default async function Edit(props) {
   let result = await db
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
-  console.log(result);
 
   await db
     .collection(컬렉션명)
