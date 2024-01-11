@@ -3,6 +3,13 @@ import Link from "next/link";
 import DetailLink from "./DetailLink";
 
 export default function ListItem(props) {
+  const handleClick = (e) => {
+    e.target.parentElement.style.opacity = 0;
+    setTimeout(() => {
+      e.target.parentElement.className = "trashedCan";
+    }, 1000);
+  };
+
   return (
     <div>
       {props.result.map((item) => {
@@ -13,12 +20,13 @@ export default function ListItem(props) {
             </Link>
             <Link href={`/edit/${item._id}`}>✏️</Link>
             <span
-              onClick={() => {
+              className="trashCan"
+              onClick={(e) => {
                 fetch("/api/post/delete", {
                   method: "DELETE",
-                  body: item._id,
+                  body: item._id.toString(),
                 }).then(() => {
-                  console.log("삭제완료");
+                  handleClick(e);
                 });
               }}
             >

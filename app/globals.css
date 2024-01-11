@@ -58,3 +58,16 @@ a {
 .write {
   margin: 20px;
 }
+
+.trashCan:hover {
+  cursor: pointer;
+}
+
+.list-item {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.trashedCan {
+  display: none;
+}
