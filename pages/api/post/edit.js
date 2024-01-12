@@ -4,11 +4,11 @@ import { ObjectId } from "mongodb";
 export default async function handler(req, res) {
   if (req.method == "POST") {
     console.log(req);
-    let 바꿀거 = { title: req.body.title, content: req.body.content };
+    let edited = { title: req.body.title, content: req.body.content };
     let db = (await connectDB).db("forum");
     let result = await db
       .collection("post")
-      .updateOne({ _id: new ObjectId(req.body._id) }, { $set: 바꿀거 });
+      .updateOne({ _id: new ObjectId(req.body._id) }, { $set: edited });
     console.log(result);
 
     res.redirect(302, "/list");
