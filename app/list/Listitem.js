@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import DetailLink from "./DetailLink";
+// import DetailLink from "./DetailLink";
 
 export default function ListItem(props) {
   const handleClick = (e) => {
