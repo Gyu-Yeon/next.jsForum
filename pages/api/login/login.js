@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     try {
       let db = (await connectDB).db("forum");
       let result = db.collection("login").find().toArray();
-      console.log(result);
+      // console.log(result);
       let ss = req.body;
       res.status(200).json(ss);
     } catch (error) {
