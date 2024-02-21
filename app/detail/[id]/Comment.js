@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Comment(props) {
   const [comment, setComment] = useState("");
-
+  console.log(props);
   return (
     <div>
-      <div>댓글목록보여줄부분</div>
+      <div>
+        {props.commentData.map((item) => {
+          return <h1>{item.comment}</h1>;
+        })}
+      </div>
       <input
         onChange={(e) => {
           setComment(e.target.value);
