@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Comment(props) {
   const [comment, setComment] = useState("");
+
   return (
     <div>
       <div>댓글목록보여줄부분</div>
@@ -17,7 +18,7 @@ export default function Comment(props) {
           console.log(comment);
           fetch("/api/post/comment", {
             method: "POST",
-            body: JSON.stringify([comment, props.parentId]),
+            body: JSON.stringify({ comment: comment, parent: props.parentId }),
           });
         }}
       >
