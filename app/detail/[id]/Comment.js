@@ -4,12 +4,28 @@ import { useEffect, useState } from "react";
 
 export default function Comment(props) {
   const [comment, setComment] = useState("");
-  console.log(props);
+  const { commentData } = props;
+  console.log(props.parentId);
+
+  const filteredComment = commentData.filter((item) => {
+    if (item.parentId === props.parentId) {
+      return item;
+    }
+  });
+
+  useEffect(() => {
+    fetch(`/api/comment/list?id=${props.parentId}`).then((response) => {
+      response.json().then((result) => {
+        console.log(result);
+      });
+    });
+  }, []);
+
   return (
     <div>
       <div>
-        {props.commentData.map((item) => {
-          return <h1>{item.comment}</h1>;
+        {filteredComment.map((item) => {
+          return <h1 key={item._id}>{item.comment}</h1>;
         })}
       </div>
       <input
@@ -31,3 +47,6 @@ export default function Comment(props) {
     </div>
   );
 }
+
+// GET 요청과 함께 데이터를 함께 보내려면,
+// URL parameter / query string

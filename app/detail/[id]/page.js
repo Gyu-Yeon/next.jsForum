@@ -9,7 +9,7 @@ export default async function Detail(props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
   let commentData = await db.collection("comment").find().toArray();
-  console.log(commentData);
+  // console.log(commentData);
   return (
     <div>
       <h4>상세페이지임</h4>
