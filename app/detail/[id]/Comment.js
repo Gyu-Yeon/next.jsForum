@@ -4,19 +4,13 @@ import { useEffect, useState } from "react";
 
 export default function Comment(props) {
   const [comment, setComment] = useState("");
+  const [data, setData] = useState([]);
   const { commentData } = props;
-  console.log(props.parentId);
-
-  const filteredComment = commentData.filter((item) => {
-    if (item.parentId === props.parentId) {
-      return item;
-    }
-  });
 
   useEffect(() => {
     fetch(`/api/comment/list?id=${props.parentId}`).then((response) => {
       response.json().then((result) => {
-        console.log(result);
+        setData(result);
       });
     });
   }, []);
@@ -24,8 +18,8 @@ export default function Comment(props) {
   return (
     <div>
       <div>
-        {filteredComment.map((item) => {
-          return <h1 key={item._id}>{item.comment}</h1>;
+        {data.map((item) => {
+          return <h5 key={item._id}>{item.comment}</h5>;
         })}
       </div>
       <input
