@@ -3,13 +3,11 @@ import { ObjectId } from "mongodb";
 import Comment from "./Comment";
 
 export default async function Detail(props) {
-  // console.log(props.params.id);
   const db = (await connectDB).db("forum");
   let result = await db
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
   let commentData = await db.collection("comment").find().toArray();
-  // console.log(commentData);
   return (
     <div>
       <h4>상세페이지임</h4>

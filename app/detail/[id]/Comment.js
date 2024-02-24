@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export default function Comment(props) {
   const [comment, setComment] = useState("");
   const [data, setData] = useState([]);
-  const { commentData } = props;
 
   useEffect(() => {
     fetch(`/api/comment/list?id=${props.parentId}`).then((response) => {
